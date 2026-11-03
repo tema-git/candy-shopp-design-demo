@@ -5,5 +5,25 @@
   "missing_files_or_anchors": [],
   "script_syntax": "node --check passed",
   "unused_generated_photo": "Removed from site; all visible artwork and motion are SVG/CSS/JS. Original retained under Codex generated_images.",
-  "browser_qa": "Delegated to root. Not claimed yet."
+  "browser_qa": "Delegated to root. Not claimed yet.",
+  "parent_browser_audit": {
+    "date": "2026-11-04",
+    "status": "passed",
+    "viewports": [
+      320,
+      390,
+      768,
+      1280
+    ],
+    "verified": [
+      "interactive completion/reset/keyboard",
+      "demo form invalid/valid/reset",
+      "motion off/on",
+      "sticky contacts and responsive layout"
+    ],
+    "limits": [
+      "No physical iOS/Android device test",
+      "No-JS submission guard reviewed in source"
+    ]
+  }
 }
