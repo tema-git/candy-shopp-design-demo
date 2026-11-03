@@ -1,0 +1,58 @@
+{
+  "company": {
+    "name": "Candy Shopp",
+    "category": "Магазин сладостей / сладкие подарки",
+    "city": "Москва",
+    "address": "Большая Черёмушкинская улица, 1",
+    "phone": "+79774974081",
+    "phone_display": "+7 977 497-40-81",
+    "email": null
+  },
+  "sources": [
+    {
+      "url": "https://urbanplaces.su/ru_moskva/moskva/card-70000001093894836-candy-shopp",
+      "role": "Public directory used in selected lead database"
+    },
+    {
+      "url": "https://msk.spravker.ru/konditerskie-magazinyi/raion-kotlovka/",
+      "role": "Name, address and public phone corroborated by parent task on 2026-11-04"
+    }
+  ],
+  "checked_date": "2026-11-04",
+  "is_official_site": false,
+  "factual_content": [
+    "Business name",
+    "Moscow address",
+    "Public business telephone"
+  ],
+  "illustrative_content": [
+    "Candy visuals and assortment suggestions",
+    "Gift packaging",
+    "Six-item gift-box game",
+    "Brand styling and promotional concept copy"
+  ],
+  "not_claimed": [
+    "Actual stock",
+    "Prices",
+    "Opening hours",
+    "Manufacturing or ingredient guarantees",
+    "Delivery",
+    "Customer reviews",
+    "Awards"
+  ],
+  "form": {
+    "mode": "browser-only demonstration",
+    "network_requests": false,
+    "persistent_storage": false,
+    "real_order_created": false
+  },
+  "artwork": {
+    "type": "Original SVG/CSS geometry",
+    "motion": "JavaScript / GSAP and CSS",
+    "bitmap_or_video_motion": false
+  },
+  "excluded_candidate": {
+    "name": "Candy lavka",
+    "reason": "Parent research found closed listing; this website does not use its identity or contacts."
+  }
+}

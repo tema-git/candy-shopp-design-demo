@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-04",
+  "scope": "Source audit; parent performs browser QA",
+  "fixed": [
+    {
+      "file": "app.js",
+      "line": 11,
+      "fix": "Added shared session-only motion state; system reduced motion takes precedence."
+    },
+    {
+      "file": "app.js",
+      "line": 96,
+      "fix": "Added footer pause/resume, GSAP context cleanup, pointer reset and transient-confetti cleanup."
+    },
+    {
+      "file": "style.css",
+      "line": 30,
+      "fix": "Disabled smooth scroll with !important and all decorative CSS transforms/transitions while paused."
+    },
+    {
+      "file": "app.js",
+      "line": 18,
+      "fix": "Mobile menu now closes when keyboard focus leaves the header; header Contacts/brand anchors also close it."
+    },
+    {
+      "file": "app.js",
+      "line": 45,
+      "fix": "Flavor interaction now animates inner use geometry, preserving the separate scroll animation."
+    },
+    {
+      "file": "style.css",
+      "line": 22,
+      "fix": "Pointer geometry separated from scroll targets in occasion, FAQ and contact scenes."
+    },
+    {
+      "file": "style.css",
+      "line": 19,
+      "fix": "Fixed dark-green focus outlines on burgundy surfaces (previous contrast 1.08:1); lime gives 6.62:1."
+    },
+    {
+      "file": "style.css",
+      "line": 20,
+      "fix": "Fixed inherited dark selection color on burgundy form buttons; transparent background retained."
+    },
+    {
+      "file": "style.css",
+      "line": 37,
+      "fix": "Changed candy choice grid to two columns on narrow phones; removed mid-word breaking."
+    },
+    {
+      "file": "app.js",
+      "line": 74,
+      "fix": "Name requires at least two Unicode letters; phone validates allowed punctuation and 11 Russian digits, rejecting letters."
+    },
+    {
+      "file": "index.html",
+      "line": 70,
+      "fix": "Added semantic name/phone autofill and polite inline validation announcements."
+    },
+    {
+      "file": "index.html",
+      "line": 66,
+      "fix": "Added accessible group for game contents; empty slots get role=img with a meaningful label."
+    },
+    {
+      "file": "app.js",
+      "line": 112,
+      "fix": "Refresh scroll geometry after font loading, window load and FAQ expansion."
+    },
+    {
+      "file": "app.js",
+      "line": 116,
+      "fix": "Restore effective animation preference after Back/Forward cache return."
+    },
+    {
+      "file": "index.html",
+      "line": 70,
+      "fix": "Submit starts disabled until preventDefault handler installation; noscript phone fallback prevents default GET submission without JavaScript."
+    }
+  ],
+  "static_checks": {
+    "js_syntax": "pass",
+    "html_nesting": "pass",
+    "duplicate_ids": 0,
+    "missing_anchors": 0,
+    "missing_assets": 0,
+    "unicode_ui_icons": 0
+  }
+}

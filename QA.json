@@ -1,0 +1,9 @@
+{
+  "local_refs_checked": 64,
+  "ids": 35,
+  "controls": 16,
+  "missing_files_or_anchors": [],
+  "script_syntax": "node --check passed",
+  "unused_generated_photo": "Removed from site; all visible artwork and motion are SVG/CSS/JS. Original retained under Codex generated_images.",
+  "browser_qa": "Delegated to root. Not claimed yet."
+}
