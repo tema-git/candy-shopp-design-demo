@@ -1,24 +1,20 @@
-# Candy Shopp — source audit
+# Candy Shopp — current refinement audit
 
-Audited 4 November 2026 against the current Vercel Web Interface Guidelines and all 12 user rules. All issues below have been corrected. Browser verification is delegated to the parent task; no browser result is claimed here.
+All changes are confined to this repository. Current browser QA is complete; executed scenarios and environment limits are recorded in QA.json.
 
-- `app.js:11` — Added shared session-only motion state; system reduced motion takes precedence.
-- `app.js:96` — Added footer pause/resume, GSAP context cleanup, pointer reset and transient-confetti cleanup.
-- `style.css:30` — Disabled smooth scroll with !important and all decorative CSS transforms/transitions while paused.
-- `app.js:18` — Mobile menu now closes when keyboard focus leaves the header; header Contacts/brand anchors also close it.
-- `app.js:45` — Flavor interaction now animates inner use geometry, preserving the separate scroll animation.
-- `style.css:22` — Pointer geometry separated from scroll targets in occasion, FAQ and contact scenes.
-- `style.css:19` — Fixed dark-green focus outlines on burgundy surfaces (previous contrast 1.08:1); lime gives 6.62:1.
-- `style.css:20` — Fixed inherited dark selection color on burgundy form buttons; transparent background retained.
-- `style.css:37` — Changed candy choice grid to two columns on narrow phones; removed mid-word breaking.
-- `app.js:74` — Name requires at least two Unicode letters; phone validates allowed punctuation and 11 Russian digits, rejecting letters.
-- `index.html:70` — Added semantic name/phone autofill and polite inline validation announcements.
-- `index.html:66` — Added accessible group for game contents; empty slots get role=img with a meaningful label.
-- `app.js:112` — Refresh scroll geometry after font loading, window load and FAQ expansion.
-- `app.js:116` — Restore effective animation preference after Back/Forward cache return.
+- `index.html:44` — Moved the complete gift-box builder immediately after hero/ribbon without changing its mechanics.
+- `index.html:43` — Replaced the finite ribbon content with two identical groups.
+- `app.js:175` — Scroll moves exactly one group width, recalculated on refresh; min group width exceeds the visible band.
+- `index.html:55` — Removed link arrows from all flavour toggles; active state uses colour and an underline.
+- `app.js:35` — Implemented bounded inner-face magnet; fixed outer anchor, pointer/focus response, coarse/reduced disable.
+- `style.css:62` — Restricted the local SVG cursor to non-text art zones; ordinary cursors retained elsewhere.
+- `app.js:92` — Implemented select-only combobox with independent pending and committed selection, full keyboard navigation and reset.
+- `app.js:106` — Fits the option popup to the viewport, opening upwards when needed.
+- `app.js:10` — Removed all manual motion preference/state; only prefers-reduced-motion governs animation.
+- `index.html:74` — Added plain-text Spoki Studio footer credit and removed visible imagery disclaimers.
+- `index.html:48` — Replaced technical input instructions with the goal-oriented remove/replace action.
+- `index.html:71` — Preserved initially disabled submit/no-JavaScript phone fallback and honest demo behavior.
 
-Static checks: JavaScript syntax pass; HTML nesting pass; duplicate IDs 0; missing anchors 0; missing local assets 0; Unicode UI icon glyphs 0. No data storage or form-network endpoint. No autoplay CSS loops or video were found; pause still governs every decorative movement.
+Static checks passed: JavaScript syntax, HTML nesting, unique IDs, local asset references and fragment links. Native select count: 0. Manual motion controls/state: 0. Visible device-input instructions: 0. All artwork remains SVG/CSS code; no video or frame animation was added.
 
-Measured text contrasts: deep burgundy on pink 6.96:1; secondary text on cream 6.01:1; secondary text on peach 4.81:1; input placeholder on white 4.60:1.
-
-- `index.html:70` — Submit is disabled in static HTML and enabled only after the JavaScript preventDefault handler is installed. Without JavaScript, a noscript notice offers the real phone link, preventing the browser default GET from exposing form values in the URL.
+Form validation, storage/network safety, sticky header, 16 px controls, transparent selection, vector CTA arrows and the narrow two-column candy picker are preserved. Form submission stays disabled in HTML until its client-only handler is installed.

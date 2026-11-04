@@ -36,14 +36,21 @@ The form validates a name (at least 2 characters) and an 11-digit Russian teleph
 
 Final artwork is entirely code-generated SVG/CSS. No video, raster sequence or animated bitmap is used.
 
-## Full source audit, 4 November 2026
+## Current interaction controls
 
-- Footer `#motion-toggle` is a shared, in-memory control for all GSAP, pointer and CSS movement. `aria-pressed` reflects the actual enabled state. Off removes/reverts the GSAP context, clears confetti/timers and pointer frames, disables smooth scroll, and retains the game/form. System reduced motion forces off with a visible explanation. No settings are persisted.
-- Toggle test: finish an animation or scroll section, turn off, move the pointer and scroll, complete the game while paused, turn on and check scroll effects return without duplicated triggers. Also test system reduced motion, mobile menu keyboard focus and Back navigation restoration.
-- Game at 320–480 px uses two choices per row, preventing broken long candy labels. Box slots remain three per row.
-- Form rejects numeric-only names and phone strings containing letters; accepts a Russian 11-digit phone starting 7/8 with optional leading plus, spaces, dashes and parentheses. Inline errors are live and associated with inputs.
-- SVG flavor changes animate inner `use` layers, so toggling flavors cannot overwrite the scroll choreography. FAQ, contacts and occasion pointer geometry likewise have independent inner layers.
-- Focus rings on burgundy surfaces use lime; measured contrast 6.62:1. Form button selection remains lime on burgundy; text selection background stays transparent.
-- HTML nesting, IDs, fragment links, local assets and JavaScript syntax passed static checks. Browser visual/functional validation is performed separately by the parent task; see `AUDIT.md` for source locations.
+The gift-box builder now follows the hero and seamless ribbon. The footer gives the plain-text Spoki Studio credit. There is no manual animation switch: only the system reduced-motion preference controls decoration. No long autoplay loop is used.
 
-The submit button starts disabled in HTML and is enabled only after the browser-only submit handler is installed. Without JavaScript, the visible noscript fallback provides the real phone number; the form cannot fall back to a default GET submission.
+Header Contacts keeps a fixed anchor target while the inner face moves slightly on pointer/focus. Its motion is disabled on coarse pointers and under reduced motion. The themed SVG cursor appears only on decorative art.
+
+The topic field is a custom select-only combobox, with a hidden named form input. It supports pointer/touch selection, Arrow keys, Home/End, typeahead, Enter/Space selection, Escape cancellation, ordinary Tab navigation, outside close and form reset. Pending navigation never alters the committed value before Enter/Space/Tab.
+
+### QA selectors
+- Game: `.candy-picker button`, `.box-slot.filled`, `#box-count`, `.reset-box`. Six picks finish the box; seventh does not add a slot. Removal and restart remain usable by keyboard.
+- Dropdown: `#customer-topic` trigger; `#topic-options` listbox; `.select-option`; `#customer-topic-value` hidden form value; `#topic-selected` visible value. From the default, open and ArrowDown, then Escape: committed value stays “Ассортимент и наличие”. Open, End, Enter: changes to “Как добраться”. Form reset restores the default.
+- Magnetic contact: `.header-contact` fixed outer target; `.contact-face` visual inner face. Pointer max 5 px X / 4 px Y. Text and art cursor behavior should be checked separately.
+- Ribbon: `.ribbon-track` contains two identical `.ribbon-group` children. Compare at top/middle/end of its scroll range and after viewport resize/font loading.
+- Form: `#customer-name`, `#customer-phone`, `.form-submit`, `#form-success`, `#form-reset`. Reject a numeric-only name and phone letters such as “+79990000000abc”. Success clears values, reports no submission and allows retry.
+
+The submit button starts disabled in HTML and is enabled only after the browser-only submit handler exists. A noscript phone fallback prevents default GET submission without JavaScript. No personal-data storage or network endpoint exists.
+
+See AUDIT.md for current source checks; parent task owns browser QA and publication.

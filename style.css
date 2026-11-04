@@ -22,18 +22,51 @@
 .occasion-art>svg{transform:translate(calc(var(--mx,0)*13px),calc(var(--my,0)*11px))}
 .faq-candy>use{transform:translate(calc(var(--mx,0)*20px),calc(var(--my,0)*10px))}
 .contact-candy>use{transform:translate(calc(var(--mx,0)*30px),calc(var(--my,0)*18px))}
-.motion-controls{display:flex;flex-direction:column;align-items:flex-start;gap:9px;max-width:290px}
-.motion-toggle{display:inline-flex;align-items:center;min-height:44px;border:1px solid currentColor;border-radius:30px;padding:10px 18px;background:transparent;color:var(--deep);font-size:16px;font-weight:500;line-height:1.3;cursor:pointer;transition:background .2s,color .2s}
-.motion-toggle:hover:not(:disabled),.motion-toggle:focus-visible{background:var(--deep);color:var(--cream)}
-.motion-toggle:disabled{cursor:default}
-#motion-hint{font-size:14px;line-height:1.5;max-width:290px}
-html.motion-paused{scroll-behavior:auto!important}
-html.motion-paused *,html.motion-paused *::before,html.motion-paused *::after{animation:none!important;transition:none!important}
-.motion-paused .reactive{--mx:0!important;--my:0!important}
-.motion-paused .hero-art,.motion-paused .hero-disc,.motion-paused .hero-image-wrap,.motion-paused .hero-candy,.motion-paused .hero-sticker,.motion-paused .hero-prop,.motion-paused .hero-object,.motion-paused .wrapped-candy,.motion-paused .sugar-bit,.motion-paused .flavor-art,.motion-paused .flavor-art>svg,.motion-paused .flavor-art>svg use,.motion-paused .gift-scene,.motion-paused .gift-candy,.motion-paused .gift-box,.motion-paused .occasion-art,.motion-paused .occasion-art>svg,.motion-paused .faq-candy,.motion-paused .faq-candy>use,.motion-paused .contact-candy,.motion-paused .contact-candy>use,.motion-paused .ribbon,.motion-paused .box-decoration,.motion-paused .candy-picker button svg,.motion-paused .box-slot svg{transform:none!important;will-change:auto}
-.motion-paused .gift-lid{transform:translateY(-100px) rotate(-12deg)!important}
-.motion-paused .sprinkle{display:none!important}
-@media(max-width:600px){.motion-controls{margin-top:20px}}
+html.system-reduced-motion{scroll-behavior:auto!important}
+html.system-reduced-motion *,html.system-reduced-motion *::before,html.system-reduced-motion *::after{animation:none!important;transition:none!important}
+.system-reduced-motion .reactive{--mx:0!important;--my:0!important}
+.system-reduced-motion .hero-art,.system-reduced-motion .hero-disc,.system-reduced-motion .hero-image-wrap,.system-reduced-motion .hero-candy,.system-reduced-motion .hero-sticker,.system-reduced-motion .hero-prop,.system-reduced-motion .hero-object,.system-reduced-motion .wrapped-candy,.system-reduced-motion .sugar-bit,.system-reduced-motion .flavor-art,.system-reduced-motion .flavor-art>svg,.system-reduced-motion .flavor-art>svg use,.system-reduced-motion .gift-scene,.system-reduced-motion .gift-candy,.system-reduced-motion .gift-box,.system-reduced-motion .occasion-art,.system-reduced-motion .occasion-art>svg,.system-reduced-motion .faq-candy,.system-reduced-motion .faq-candy>use,.system-reduced-motion .contact-candy,.system-reduced-motion .contact-candy>use,.system-reduced-motion .ribbon,.system-reduced-motion .box-decoration,.system-reduced-motion .candy-picker button svg,.system-reduced-motion .box-slot svg{transform:none!important;will-change:auto}
+.system-reduced-motion .gift-lid{transform:translateY(-100px) rotate(-12deg)!important}
+.system-reduced-motion .sprinkle{display:none!important}
 @media(max-width:480px){.candy-picker{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.candy-picker span{overflow-wrap:normal;hyphens:none}.candy-picker button{min-height:160px}}
 @media(prefers-reduced-motion:reduce){.occasion-art>svg,.faq-candy>use,.contact-candy>use{transform:none!important}}
 .form-noscript{font-size:16px;line-height:1.6;margin-bottom:20px}.form-submit:disabled{opacity:.65;cursor:not-allowed;box-shadow:none}
+/* Requested refinement: seamless scroll ribbon, early play and bespoke controls. */
+.ribbon-wrap{height:clamp(100px,calc(88px + 2.5vw),185px)}
+.ribbon{display:block;flex:0 0 calc(100% + 120px);width:calc(100% + 120px);position:relative;left:-60px;overflow:hidden;transform:rotate(-2deg);gap:0}
+.ribbon-track{display:flex;width:max-content;align-items:center;will-change:transform}
+.ribbon-group{display:flex;flex:0 0 auto;align-items:center;justify-content:space-around;min-width:calc(100vw + 180px);gap:36px;padding-right:36px}
+.ribbon-group svg{flex:0 0 60px}
+.flavor-tab{position:relative;transition:color .2s,border-color .2s}
+.flavor-tab.active{color:var(--cherry);border-bottom-color:var(--cherry);box-shadow:inset 0 -2px var(--cherry)}
+.flavor-tab.active>span{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:7px}
+.header-contact{display:inline-flex;padding:5px;margin:-5px;border-radius:100px;position:relative;flex-shrink:0;isolation:isolate}
+.contact-face{pointer-events:none;transform:translate(var(--magnet-x,0px),var(--magnet-y,0px));transition:transform .25s cubic-bezier(.2,.8,.2,1),background .2s,box-shadow .2s;will-change:transform}
+.header-contact:hover .contact-face,.header-contact:focus-visible .contact-face{background:#b2244e;box-shadow:0 0 0 5px #8f15390d}
+.candy-select{position:relative;min-width:0;isolation:isolate}
+.select-trigger{width:100%;min-width:0;min-height:56px;display:flex;justify-content:space-between;align-items:center;gap:15px;padding:14px 15px;text-align:left;font-size:16px;line-height:1.4;background:#fffdf9;border:1px solid #ac7081;border-radius:8px;color:var(--deep);transition:border-color .2s,background .2s}
+.select-trigger>span{min-width:0;overflow-wrap:break-word}
+.select-trigger:hover,.select-trigger[aria-expanded=true]{border-color:var(--cherry);background:#fff8ef}
+.select-chevron{width:23px;height:23px;flex:0 0 23px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.select-trigger[aria-expanded=true] .select-chevron{transform:rotate(180deg)}
+.select-options{position:absolute;z-index:20;left:0;right:0;top:calc(100% + 8px);max-height:220px;overflow:auto;overscroll-behavior:contain;background:#fffaf3;border:1px solid #c47c92;border-radius:12px;box-shadow:0 15px 35px #70102c22;padding:6px;scroll-padding:6px}
+.candy-select.is-open{z-index:10}
+.candy-select.opens-up .select-options{top:auto;bottom:calc(100% + 8px)}
+.select-option{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:12px 11px;border-radius:7px;font-size:16px;line-height:1.4;cursor:pointer;color:var(--deep);transition:background .15s}
+.select-option>span{min-width:0;overflow-wrap:break-word}
+.select-option.is-active{background:#f9d7e1}
+.select-option[aria-selected=true]{font-weight:600}
+.select-check{width:20px;height:20px;flex:0 0 20px;opacity:0}
+.select-option[aria-selected=true] .select-check{opacity:1}
+.studio-credit{font-size:14px;font-weight:500;opacity:.8;white-space:nowrap}
+@media(pointer:fine){.hero-art,.flavor-art,.gift-scene{pointer-events:auto;cursor:url('./assets/candy-cursor.svg') 16 16,auto}.hero-copy h1,.hero-copy p,.flavor-description,.hero-sticker,.gift-word,.gift-label,.box-front span{cursor:text}}
+@media(pointer:coarse){.contact-face{transform:none!important;will-change:auto}}
+@media(max-width:600px){.ribbon-group{gap:25px;padding-right:25px}.ribbon-group svg{flex-basis:45px}.select-trigger{min-height:56px}.select-options{max-height:210px}.studio-credit{display:block;margin-top:18px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.ribbon-track,.contact-face{transform:none!important;will-change:auto}.hero-art,.flavor-art,.gift-scene{cursor:auto}}
+/* Reserve a separate text lane below the moving flavor illustration. */
+.flavor-stage{--flavor-art-height:300px;padding-top:calc(var(--flavor-art-height) + 56px)}
+.flavor-art{height:var(--flavor-art-height)}
+@media(min-width:1600px){.flavor-stage{--flavor-art-height:350px}}
+@media(max-width:1100px){.flavor-stage{--flavor-art-height:280px}}
+@media(max-width:850px){.flavor-stage{--flavor-art-height:255px}}
+@media(max-width:600px){.flavor-stage{--flavor-art-height:295px}}

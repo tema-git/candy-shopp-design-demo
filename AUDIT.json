@@ -1,89 +1,76 @@
 {
-  "date": "2026-11-04",
-  "scope": "Source audit; parent performs browser QA",
-  "fixed": [
+  "scope": "Current user refinements, source checks; browser QA delegated to parent",
+  "changes": [
     {
-      "file": "app.js",
-      "line": 11,
-      "fix": "Added shared session-only motion state; system reduced motion takes precedence."
+      "file": "index.html",
+      "line": 44,
+      "change": "Moved the complete gift-box builder immediately after hero/ribbon without changing its mechanics."
+    },
+    {
+      "file": "index.html",
+      "line": 43,
+      "change": "Replaced the finite ribbon content with two identical groups."
     },
     {
       "file": "app.js",
-      "line": 96,
-      "fix": "Added footer pause/resume, GSAP context cleanup, pointer reset and transient-confetti cleanup."
+      "line": 175,
+      "change": "Scroll moves exactly one group width, recalculated on refresh; min group width exceeds the visible band."
     },
     {
-      "file": "style.css",
-      "line": 30,
-      "fix": "Disabled smooth scroll with !important and all decorative CSS transforms/transitions while paused."
-    },
-    {
-      "file": "app.js",
-      "line": 18,
-      "fix": "Mobile menu now closes when keyboard focus leaves the header; header Contacts/brand anchors also close it."
+      "file": "index.html",
+      "line": 55,
+      "change": "Removed link arrows from all flavour toggles; active state uses colour and an underline."
     },
     {
       "file": "app.js",
-      "line": 45,
-      "fix": "Flavor interaction now animates inner use geometry, preserving the separate scroll animation."
+      "line": 35,
+      "change": "Implemented bounded inner-face magnet; fixed outer anchor, pointer/focus response, coarse/reduced disable."
     },
     {
       "file": "style.css",
-      "line": 22,
-      "fix": "Pointer geometry separated from scroll targets in occasion, FAQ and contact scenes."
-    },
-    {
-      "file": "style.css",
-      "line": 19,
-      "fix": "Fixed dark-green focus outlines on burgundy surfaces (previous contrast 1.08:1); lime gives 6.62:1."
-    },
-    {
-      "file": "style.css",
-      "line": 20,
-      "fix": "Fixed inherited dark selection color on burgundy form buttons; transparent background retained."
-    },
-    {
-      "file": "style.css",
-      "line": 37,
-      "fix": "Changed candy choice grid to two columns on narrow phones; removed mid-word breaking."
+      "line": 62,
+      "change": "Restricted the local SVG cursor to non-text art zones; ordinary cursors retained elsewhere."
     },
     {
       "file": "app.js",
+      "line": 92,
+      "change": "Implemented select-only combobox with independent pending and committed selection, full keyboard navigation and reset."
+    },
+    {
+      "file": "app.js",
+      "line": 106,
+      "change": "Fits the option popup to the viewport, opening upwards when needed."
+    },
+    {
+      "file": "app.js",
+      "line": 10,
+      "change": "Removed all manual motion preference/state; only prefers-reduced-motion governs animation."
+    },
+    {
+      "file": "index.html",
       "line": 74,
-      "fix": "Name requires at least two Unicode letters; phone validates allowed punctuation and 11 Russian digits, rejecting letters."
+      "change": "Added plain-text Spoki Studio footer credit and removed visible imagery disclaimers."
     },
     {
       "file": "index.html",
-      "line": 70,
-      "fix": "Added semantic name/phone autofill and polite inline validation announcements."
+      "line": 48,
+      "change": "Replaced technical input instructions with the goal-oriented remove/replace action."
     },
     {
       "file": "index.html",
-      "line": 66,
-      "fix": "Added accessible group for game contents; empty slots get role=img with a meaningful label."
-    },
-    {
-      "file": "app.js",
-      "line": 112,
-      "fix": "Refresh scroll geometry after font loading, window load and FAQ expansion."
-    },
-    {
-      "file": "app.js",
-      "line": 116,
-      "fix": "Restore effective animation preference after Back/Forward cache return."
-    },
-    {
-      "file": "index.html",
-      "line": 70,
-      "fix": "Submit starts disabled until preventDefault handler installation; noscript phone fallback prevents default GET submission without JavaScript."
+      "line": 71,
+      "change": "Preserved initially disabled submit/no-JavaScript phone fallback and honest demo behavior."
     }
   ],
   "static_checks": {
     "js_syntax": "pass",
     "html_nesting": "pass",
     "duplicate_ids": 0,
-    "missing_anchors": 0,
+    "missing_fragments": 0,
     "missing_assets": 0,
-    "unicode_ui_icons": 0
-  }
+    "native_selects": 0,
+    "manual_motion_controls": 0,
+    "visible_input_device_instructions": 0
+  },
+  "browser_checks": "Completed by parent; detailed executed scenarios and limits are in QA.json."
 }

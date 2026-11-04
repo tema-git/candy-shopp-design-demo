@@ -5,8 +5,8 @@
   "missing_files_or_anchors": [],
   "script_syntax": "node --check passed",
   "unused_generated_photo": "Removed from site; all visible artwork and motion are SVG/CSS/JS. Original retained under Codex generated_images.",
-  "browser_qa": "Delegated to root. Not claimed yet.",
-  "parent_browser_audit": {
+  "browser_qa": "Current revision exercised in local in-app browser; see parent_browser_audit for coverage and limits.",
+  "previous_parent_browser_audit": {
     "date": "2026-11-04",
     "status": "passed",
     "viewports": [
@@ -25,5 +25,46 @@
       "No physical iOS/Android device test",
       "No-JS submission guard reviewed in source"
     ]
+  },
+  "parent_browser_audit": {
+    "date": "2026-11-04",
+    "status": "passed",
+    "revision": "current post-audit revision",
+    "viewports": [
+      320,
+      390,
+      768,
+      1280,
+      1920
+    ],
+    "verified": [
+      "Desktop browser interaction plus responsive widths 320, 390, 768, 1280, 1920; no root horizontal overflow in scanned layouts",
+      "Game/configurator completion, invalid and valid demo-form paths, success and repeat/reset",
+      "Sticky visible Contacts, accent actions, SVG arrows, transparent text selection",
+      "Custom listbox keyboard navigation and cancel/commit behavior",
+      "No manual motion controls, native select elements, raster/video scene elements or visible device-input instructions",
+      "Exact footer credit: Сайт создан Spoki Studio",
+      "Local assets/anchors/unique IDs and JavaScript syntax passed; browser console had no site warnings/errors",
+      "Six sweets produce a result; seventh is blocked; keyboard removal, reset and keyboard addition work",
+      "Flavor buttons update selected state, artwork and copy without link arrows",
+      "Dropdown End/Enter, Home/Escape, Tab commit, option click and reset verified; mobile popup remains visible",
+      "Contact face responds in both directions while the anchor rectangle stays fixed",
+      "Builder follows hero/ribbon; text selection cursor preserved within illustrated scenes",
+      "Flavor artwork and text separated: final measured gap 63px at 1280 and 58px at 320; no horizontal overflow"
+    ],
+    "limits": [
+      "Viewport emulation only; no physical iOS or Android device test",
+      "Reduced-motion coverage uses an unpublished local fixture simulating matchMedia and the CSS media query; OS preference was not changed",
+      "No-JavaScript submission guard reviewed in source rather than browser-disabled-JavaScript execution",
+      "No real order/callback backend: forms intentionally demonstrate validation without sending or storing personal data",
+      "Direct public Pages HTTP access timed out from this environment; publication is verified separately through GitHub build status and deployed revision"
+    ]
+  },
+  "final_static_audit": {
+    "slug": "candy-shopp-design-demo",
+    "issues": [],
+    "ids": 43,
+    "references": 67,
+    "images": 0
   }
 }
